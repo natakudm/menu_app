@@ -1,4 +1,4 @@
-import psycopg2
+from database import connection_pool
 
 
 class Restaurant:
@@ -15,7 +15,7 @@ class Restaurant:
         return "<Restaurant: {}>".format(self.name)
 
     def save_to_db(self):
-        with psycopg2.connect(user='postgres', password='7777777', database='menu_app', host='localhost') as connection:
+        with connection_pool.getconn() as connection:
             with connection.cursor() as cursor:
                 cursor.execute('INSERT INTO restaurant(name, location, description, picture, restaurant_type) '
                                'VALUES (%s, %s, %s, %s, %s)', (self.name, self.location, self.description, self.picture,
@@ -23,7 +23,7 @@ class Restaurant:
 
     @classmethod
     def load_from_db_by_name(cls, name):
-        with psycopg2.connect(user='postgres', password='7777777', database='menu_app', host='localhost') as connection:
+        with connection_pool.getconn() as connection:
             with connection.cursor() as cursor:
                 cursor.execute('SELECT * FROM restaurant WHERE name=%s', (name,))
                 data = cursor.fetchone()
