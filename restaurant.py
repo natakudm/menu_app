@@ -1,4 +1,4 @@
-from database import connection_pool
+from database import ConnectionFromPool
 
 
 class Restaurant:
@@ -15,15 +15,15 @@ class Restaurant:
         return "<Restaurant: {}>".format(self.name)
 
     def save_to_db(self):
-        with connection_pool.getconn() as connection:
+        with ConnectionFromPool() as connection:
             with connection.cursor() as cursor:
-                cursor.execute('INSERT INTO restaurant(name, location, description, picture, restaurant_type) '
-                               'VALUES (%s, %s, %s, %s, %s)', (self.name, self.location, self.description, self.picture,
-                                                               self.restaurant_type))
+                cursor.execute(
+                    'INSERT INTO restaurant(name, location, description, picture, restaurant_type) VALUES (%s, %s, %s, %s, %s)',
+                    (self.name, self.location, self.description, self.picture, self.restaurant_type))
 
     @classmethod
     def load_from_db_by_name(cls, name):
-        with connection_pool.getconn() as connection:
+        with ConnectionFromPool() as connection:
             with connection.cursor() as cursor:
                 cursor.execute('SELECT * FROM restaurant WHERE name=%s', (name,))
                 data = cursor.fetchone()
