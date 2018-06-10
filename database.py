@@ -10,6 +10,18 @@ class Database:
                                                              user='postgres', password='7777777', database='menu_app',
                                                              host='localhost')
 
+    @classmethod
+    def get_connection(cls):
+        return cls.connection_pool.getconn()
+
+    @classmethod
+    def return_connection(cls, connection):
+        Database.connection_pool.putconn(connection)
+
+    @classmethod
+    def close_all_connections(cls):
+        Database.connection_pool.closeall()
+
 
 class CursorFromConnectionFromPool:
     def __init__(self):
@@ -17,7 +29,7 @@ class CursorFromConnectionFromPool:
         self.cursor = None
 
     def __enter__(self):
-        self.connection = Database.connection_pool.getconn()
+        self.connection = Database.get_connection()
         self.cursor = self.connection.cursor()
         return self.cursor
 
@@ -27,4 +39,4 @@ class CursorFromConnectionFromPool:
         else:
             self.cursor.close()
             self.connection.commit()
-        Database.connection_pool.putconn(self.connection)
+        Database.return_connection(self.connection)
