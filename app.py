@@ -1,9 +1,9 @@
 from database import Database
-from wine import Wine
+from dish import Dish
 
 Database.initialize(user='postgres', password='7777777', database='menu_app', host='localhost')
 
-my_wine = Wine.load_wine_from_db_by_id(1)
-print(my_wine)
+my_dish = Dish.load_dish_from_db_by_id(2)
+print(my_dish)
 
-all_wine = Wine.load_wine_from_db()
+all_dishes = Dish.load_dishes_from_db()
