@@ -1,6 +1,5 @@
-from restaurant import Restaurant
-from meal import Meal
 from database import Database
+from cocktail import Cocktail
 
 Database.initialize(user='postgres', password='7777777', database='menu_app', host='localhost')
 
@@ -9,7 +8,7 @@ Database.initialize(user='postgres', password='7777777', database='menu_app', ho
 
 # all_restaurants = Restaurant.load_restaurants_from_db()
 
-# my_meal = Meal.load_meal_from_db_by_name('lunc')
-# print(my_meal)
+my_cocktail = Cocktail.load_cocktail_from_db_by_id(1)
+print(my_cocktail)
 
-# all_meal = Meal.load_meals_from_db()
+all_cocktail = Cocktail.load_cocktails_from_db()
