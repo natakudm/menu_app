@@ -1,5 +1,5 @@
 from database import CursorFromConnectionFromPool
-
+img_url = 'http://127.0.0.1:5000/static/img/'
 
 class Restaurant:
     def __init__(self, _id, name, location, description, picture, restaurant_type, price):
@@ -14,24 +14,43 @@ class Restaurant:
     def __repr__(self):
         return "<Restaurant: {}>".format(self.name)
 
+    def json(self):
+        json_obj = {'id': self.id, 'name': self.name, 'location': self.location, 'description': self.description,
+                    'picture': img_url+self.picture, 'restaurant_type': self.restaurant_type, 'price': str(self.price)}
+        return json_obj
+
     @classmethod
-    def load_restaurant_from_db_by_name(cls, name):
+    def load_restaurant_by_name(cls, name):
         with CursorFromConnectionFromPool() as cursor:
             cursor.execute('SELECT * FROM restaurant WHERE name=%s', (name,))
             data = cursor.fetchone()
             if data:
-                return cls(*data)
+                restaurant = cls(*data)
             else:
-                return {'message': 'Restaurant not found'}
+                restaurant = None
+        return restaurant
 
     @classmethod
-    def load_restaurants_from_db(cls):
+    def load_restaurant_by_id(cls, _id):
+        with CursorFromConnectionFromPool() as cursor:
+            cursor.execute('SELECT * FROM restaurant WHERE id=?', (_id,))
+            data = cursor.fetchone()
+            if data:
+                restaurant = cls(*data)
+            else:
+                restaurant = None
+        return restaurant
+
+    @classmethod
+    def load_restaurants(cls):
         with CursorFromConnectionFromPool() as cursor:
             cursor.execute('SELECT * FROM restaurant')
             all_data = cursor.fetchall()
-
+            restaurants = []
             for data in all_data:
-                print(cls(*data))
+                restaurant = cls(*data).json()
+                restaurants.append(restaurant)
+        return restaurants
 
 
 # Post restaurant to database (for version 1.3)

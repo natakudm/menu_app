@@ -3,18 +3,20 @@ from flask import Flask
 from flask_restful import Resource, Api
 from models.restaurant import Restaurant
 
-# Database.initialize(user='postgres', password='7777777', database='menu_app', host='localhost')
+Database.initialize(user='postgres', password='7777777', database='menu_app', host='localhost')
 img_url = 'http://127.0.0.1:5000/static/img/'
 
 app = Flask(__name__)
 api = Api(app)
 
-
-class Restaurant(Resource):
-    def get(self, name):
-        return {'restaurant': name}
+restaurants = Restaurant.load_restaurants()
 
 
-api.add_resource(Restaurant, '/restaurant/<string:name>')
+class RestaurantList(Resource):
+    def get(self):
+        return {'restaurants': restaurants}, 200
 
-app.run(port=5000)
+
+api.add_resource(RestaurantList, '/restaurants')
+
+app.run(port=5000, debug=True)
