@@ -1,5 +1,5 @@
 from database import Database
-from dish import Dish
+from models.dish import Dish
 
 Database.initialize(user='postgres', password='7777777', database='menu_app', host='localhost')
 
