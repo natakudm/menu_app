@@ -1,9 +1,20 @@
 from database import Database
-from models.dish import Dish
+from flask import Flask
+from flask_restful import Resource, Api
+from models.restaurant import Restaurant
 
-Database.initialize(user='postgres', password='7777777', database='menu_app', host='localhost')
+# Database.initialize(user='postgres', password='7777777', database='menu_app', host='localhost')
+img_url = 'http://127.0.0.1:5000/static/img/'
 
-my_dish = Dish.load_dish_from_db_by_id(2)
-print(my_dish)
+app = Flask(__name__)
+api = Api(app)
 
-all_dishes = Dish.load_dishes_from_db()
+
+class Restaurant(Resource):
+    def get(self, name):
+        return {'restaurant': name}
+
+
+api.add_resource(Restaurant, '/restaurant/<string:name>')
+
+app.run(port=5000)
