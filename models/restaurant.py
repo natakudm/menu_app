@@ -1,7 +1,8 @@
 from database import CursorFromConnectionFromPool
-img_url = 'http://127.0.0.1:5000/static/img/'
+from init import img_url
 
-class Restaurant:
+
+class RestaurantModel:
     def __init__(self, _id, name, location, description, picture, restaurant_type, price):
         self.id = _id
         self.name = name
