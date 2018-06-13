@@ -20,13 +20,6 @@ class DishModel:
     def __repr__(self):
         return "<Dish name: {}>".format(self.name)
 
-    # def json(self):
-    #     json_obj = {'id': self.id, 'category': self.category,'name': self.name, 'description': self.description,
-    #                 'picture': img_url + self.picture, 'wine_id': self.recomended_wine, 'wine_name': self.wine_name,
-    #                 'restaurant_name': self.restaurant_name, 'restaurant_type': self.restaurant_type,
-    #                 'meal_name': self.meal_name}
-    #     return json_obj
-
     @classmethod
     def load_dish_by_id(cls, _id):
         with CursorFromConnectionFromPool() as cursor:
