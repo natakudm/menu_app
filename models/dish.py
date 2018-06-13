@@ -3,7 +3,8 @@ from init import img_url
 
 
 class DishModel:
-    def __init__(self, _id, category, name, description, picture, wine_id, wine_name, restaurant_name, meal_name):
+    def __init__(self, _id, category, name, description, picture, wine_id, wine_name, restaurant_name,
+                 meal_name, restaurant_type):
         self.id = _id
         self.category = category
         self.name = name
@@ -12,6 +13,7 @@ class DishModel:
         self.recomended_wine = wine_id
         self.wine_name = wine_name
         self.restaurant_name = restaurant_name
+        self.restaurant_type = restaurant_type
         self.meal_name = meal_name
 
     def __repr__(self):
@@ -20,17 +22,18 @@ class DishModel:
     def json(self):
         json_obj = {'id': self.id, 'category': self.category,'name': self.name, 'description': self.description,
                     'picture': img_url + self.picture, 'wine_id': self.recomended_wine, 'wine_name': self.wine_name,
-                    'restaurant_name': self.restaurant_name, 'meal_name': self.meal_name}
+                    'restaurant_name': self.restaurant_name, 'restaurant_type': self.restaurant_type,
+                    'meal_name': self.meal_name}
         return json_obj
 
     @classmethod
     def load_dish_by_id(cls, _id):
         with CursorFromConnectionFromPool() as cursor:
-            # try:
+             try:
                 cursor.execute('SELECT * FROM dish_view WHERE id=%s', (_id,))
                 data = cursor.fetchone()
                 return cls(*data).json()
-           # except:
+             except:
                 return {'message': 'dish not found'}
 
     @classmethod
