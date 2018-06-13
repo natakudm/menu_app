@@ -3,6 +3,7 @@ from flask_restful import Api
 from resourses.restaurant import RestaurantList, Restaurant, TraditionalRestaurants
 from resourses.index import IndexRepr
 from resourses.wine import Wine
+from resourses.cocktail import CocktailsOfTheDay
 from resourses.dish import Dish, RandomDish
 
 
@@ -14,6 +15,7 @@ api.add_resource(RestaurantList, '/restaurants')
 api.add_resource(Restaurant, '/restaurant/<int:_id>')
 api.add_resource(TraditionalRestaurants, '/traditional_restaurants')
 api.add_resource(Wine, '/wine/<int:_id>')
+api.add_resource(CocktailsOfTheDay, '/<int:id_day>/cocktails')
 api.add_resource(Dish, '/dish/<int:_id>')
 api.add_resource(RandomDish, '/<int:id_day>/<string:meal_name>/<string:restaurant_type>')
 
