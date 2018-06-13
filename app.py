@@ -6,6 +6,7 @@ from resourses.wine import Wine
 from resourses.cocktail import CocktailsOfTheDay
 from resourses.dish import Dish, RandomDish
 from resourses.dinner_restaurant import DinnerRestaurant
+from resourses.breakfast import Breakfast
 
 
 app = Flask(__name__)
@@ -20,6 +21,7 @@ api.add_resource(CocktailsOfTheDay, '/<int:id_day>/cocktails')
 api.add_resource(Dish, '/dish/<int:_id>')
 api.add_resource(RandomDish, '/<int:id_day>/<string:meal_name>/<string:restaurant_type>')
 api.add_resource(DinnerRestaurant, '/<int:id_day>/dinner')
+api.add_resource(Breakfast, '/<int:id_day>/breakfast')
 
 if __name__ == '__main__':
     import init
