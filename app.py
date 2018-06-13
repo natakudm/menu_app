@@ -2,16 +2,16 @@ from flask import Flask
 from flask_restful import Api
 from resourses.restaurant import RestaurantList
 from resourses.index import IndexRepr
-from resourses.dish import Dish
+from resourses.dish import Dish, RandomDish
 
 
 app = Flask(__name__)
 api = Api(app)
 
-# api.add_resource(RestaurantList, '/')
 api.add_resource(RestaurantList, '/restaurants')
 api.add_resource(IndexRepr, '/')
 api.add_resource(Dish, '/dish/<int:_id>')
+api.add_resource(RandomDish, '/<int:id_day>/<string:meal_name>/<string:restaurant_type>')
 
 if __name__ == '__main__':
     import init

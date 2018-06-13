@@ -23,24 +23,22 @@ class RestaurantModel:
     @classmethod
     def load_restaurant_by_name(cls, name):
         with CursorFromConnectionFromPool() as cursor:
-            cursor.execute('SELECT * FROM restaurant WHERE name=%s', (name,))
-            data = cursor.fetchone()
-            if data:
-                restaurant = cls(*data)
-            else:
-                restaurant = None
-        return restaurant
+            try:
+                cursor.execute('SELECT * FROM restaurant WHERE name=?', (name,))
+                data = cursor.fetchone()
+                return cls(*data).json(), 200
+            except:
+                return {'message': 'restaurant not found'}, 404
 
     @classmethod
     def load_restaurant_by_id(cls, _id):
         with CursorFromConnectionFromPool() as cursor:
-            cursor.execute('SELECT * FROM restaurant WHERE id=?', (_id,))
-            data = cursor.fetchone()
-            if data:
-                restaurant = cls(*data)
-            else:
-                restaurant = None
-        return restaurant
+            try:
+                cursor.execute('SELECT * FROM restaurant WHERE id=?', (_id,))
+                data = cursor.fetchone()
+                return cls(*data).json(), 200
+            except:
+                return {'message': 'restaurant not found'}, 404
 
     @classmethod
     def load_restaurants(cls):
@@ -51,7 +49,7 @@ class RestaurantModel:
             for data in all_data:
                 restaurant = cls(*data).json()
                 restaurants.append(restaurant)
-        return restaurants
+        return restaurants, 200
 
 
 # Post restaurant to database (for version 1.3)
