@@ -21,20 +21,10 @@ class RestaurantModel:
         return json_obj
 
     @classmethod
-    def load_restaurant_by_name(cls, name):
-        with CursorFromConnectionFromPool() as cursor:
-            try:
-                cursor.execute('SELECT * FROM restaurant WHERE name=?', (name,))
-                data = cursor.fetchone()
-                return cls(*data).json(), 200
-            except:
-                return {'message': 'restaurant not found'}, 404
-
-    @classmethod
     def load_restaurant_by_id(cls, _id):
         with CursorFromConnectionFromPool() as cursor:
             try:
-                cursor.execute('SELECT * FROM restaurant WHERE id=?', (_id,))
+                cursor.execute('SELECT * FROM restaurant WHERE id=%s', (_id,))
                 data = cursor.fetchone()
                 return cls(*data).json(), 200
             except:
@@ -51,6 +41,29 @@ class RestaurantModel:
                 restaurants.append(restaurant)
         return restaurants, 200
 
+    @classmethod
+    def load_traditional_restaurants(cls):
+        with CursorFromConnectionFromPool() as cursor:
+            cursor.execute('SELECT * FROM restaurant WHERE restaurant_type=%s', ('traditional',))
+            all_data = cursor.fetchall()
+            restaurants = []
+            for data in all_data:
+                restaurant = cls(*data).json()
+                restaurants.append(restaurant)
+        return restaurants, 200
+
+
+
+# Load restaurant by name
+    # @classmethod
+    # def load_restaurant_by_name(cls, name):
+    #     with CursorFromConnectionFromPool() as cursor:
+    #         try:
+    #             cursor.execute('SELECT * FROM restaurant WHERE name=%s', (name,))
+    #             data = cursor.fetchone()
+    #             return cls(*data).json(), 200
+    #         except:
+    #             return {'message': 'restaurant not found'}, 404
 
 # Post restaurant to database (for version 1.3)
     # def save_to_db(self):
