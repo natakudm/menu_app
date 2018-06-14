@@ -3,6 +3,7 @@ from flask_restful import Resource
 
 
 class IndexRepr(Resource):
-    def get(self):
+    @staticmethod
+    def get():
         index_page = IndexModel.load_index()
         return index_page, 200

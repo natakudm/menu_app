@@ -3,5 +3,6 @@ from flask_restful import Resource
 
 
 class Breakfast(Resource):
-    def get(self, id_day):
+    @staticmethod
+    def get(id_day):
         return BreakfastModel.load_breakfast(id_day)

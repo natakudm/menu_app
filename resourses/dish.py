@@ -3,22 +3,26 @@ from flask_restful import Resource
 
 
 class Dish(Resource):
-    def get(self, _id):
+    @staticmethod
+    def get(_id):
         dish = DishModel.load_dish_by_id(_id)
         return dish
 
 
 class RandomDish(Resource):
-    def get(self, id_day, meal_name, restaurant_type):
+    @staticmethod
+    def get(id_day, meal_name, restaurant_type):
         random_dish = DishModel.load_random_dish(id_day, meal_name, restaurant_type)
         return random_dish
 
 
 class LunchDishes(Resource):
-    def get(self, id_day):
+    @staticmethod
+    def get(id_day):
         return DishModel.load_lunch_dishes(id_day)
 
 
 class DinnerDishes(Resource):
-    def get(self, id_day, restaurant_type):
+    @staticmethod
+    def get(id_day, restaurant_type):
         return DishModel.load_dinner_dises(id_day, restaurant_type)
