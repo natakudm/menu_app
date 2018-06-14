@@ -17,3 +17,8 @@ class RandomDish(Resource):
 class LunchDishes(Resource):
     def get(self, id_day):
         return DishModel.load_lunch_dishes(id_day)
+
+
+class DinnerDishes(Resource):
+    def get(self, id_day, restaurant_type):
+        return DishModel.load_dinner_dises(id_day, restaurant_type)

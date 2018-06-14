@@ -71,3 +71,20 @@ class DishModel:
             for data in all_data:
                 dishes.append(vars(cls(*data)))
         return dishes
+
+    @classmethod
+    def load_dinner_dises(cls, id_day, restaurant_type):
+        with CursorFromConnectionFromPool() as cursor:
+            cursor.execute('SELECT dish.id, dish.id_day, dish.category, dish.name, dish.description, dish.picture, '
+                           'wine.id AS wine_id, wine.name AS wine_name, restaurant.name AS restaurant_name, '
+                           'meal.name AS meal_name, restaurant.restaurant_type FROM dish '
+                           'LEFT JOIN wine ON dish.recomended_wine = wine.id '
+                           'LEFT JOIN meal ON dish.id_meal = meal.id '
+                           'LEFT JOIN restaurant ON meal.id_restaurant = restaurant.id '
+                           'WHERE (dish.id_day = 0 OR dish.id_day = %s) '
+                           'AND meal.name = \'dinner\' AND restaurant.restaurant_type=%s', (id_day, restaurant_type))
+            dishes = []
+            all_data = cursor.fetchall()
+            for data in all_data:
+                dishes.append(vars(cls(*data)))
+        return dishes
