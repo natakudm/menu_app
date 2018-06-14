@@ -53,3 +53,21 @@ class DishModel:
             except:
                 return {'message': 'dish for {0} day {1} meal time and {2} restaurant type not found'.
                         format(day, meal_name, restaurant_type)}, 404
+
+    @classmethod
+    def load_lunch_dishes(cls, id_day):
+        with CursorFromConnectionFromPool() as cursor:
+            cursor.execute('SELECT dish.id, dish.id_day, dish.category, dish.name, dish.description, dish.picture, '
+                           'wine.id AS wine_id, wine.name AS wine_name, restaurant.name AS restaurant_name, '
+                           'meal.name AS meal_name, restaurant.restaurant_type FROM dish '
+                           'LEFT JOIN wine ON dish.recomended_wine = wine.id '
+                           'LEFT JOIN meal ON dish.id_meal = meal.id '
+                           'LEFT JOIN restaurant ON meal.id_restaurant = restaurant.id '
+                           'WHERE (dish.id_day = 0 OR dish.id_day = %s) '
+                           'AND meal.name = \'lunch\'', (id_day,))
+
+            all_data = cursor.fetchall()
+            dishes = []
+            for data in all_data:
+                dishes.append(vars(cls(*data)))
+        return dishes
