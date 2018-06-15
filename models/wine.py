@@ -33,3 +33,15 @@ class WineModel:
             for data in all_data:
                 wines.append(cls(*data))
         return wines, 200
+
+    @classmethod
+    def load_random_wine(cls):
+        with CursorFromConnectionFromPool() as cursor:
+            try:
+                cursor.execute('SELECT * FROM wine ORDER BY random()')
+                data = cursor.fetchone()
+                return vars(cls(*data)), 200
+            except:
+                return {'message': 'wine not found'}, 404
+
+

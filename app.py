@@ -1,8 +1,8 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_restful import Api
 from resourses.restaurant import RestaurantList, Restaurant, TraditionalRestaurants
 from resourses.index import IndexRepr
-from resourses.wine import Wine
+from resourses.wine import Wine, RandomWine
 from resourses.cocktail import CocktailsOfTheDay
 from resourses.dish import Dish, RandomDish, LunchDishes, DinnerDishes
 from resourses.dinner_restaurant import DinnerRestaurant
@@ -12,11 +12,17 @@ from resourses.breakfast import Breakfast
 app = Flask(__name__)
 api = Api(app)
 
-api.add_resource(IndexRepr, '/')
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+api.add_resource(IndexRepr, '/main')
 api.add_resource(RestaurantList, '/restaurants')
 api.add_resource(Restaurant, '/restaurant/<int:_id>')
 api.add_resource(TraditionalRestaurants, '/traditional_restaurants')
 api.add_resource(Wine, '/wine/<int:_id>')
+api.add_resource(RandomWine, '/wine')
 api.add_resource(CocktailsOfTheDay, '/<int:id_day>/cocktails')
 api.add_resource(Dish, '/dish/<int:_id>')
 api.add_resource(RandomDish, '/<int:id_day>/<string:meal_name>/<string:restaurant_type>')
