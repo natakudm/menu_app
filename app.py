@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_restful import Api
 from resourses.restaurant import RestaurantList, Restaurant, TraditionalRestaurants
 from resourses.index import IndexRepr
@@ -30,6 +30,18 @@ api.add_resource(DinnerRestaurant, '/<int:id_day>/dinner')
 api.add_resource(Breakfast, '/<int:id_day>/breakfast')
 api.add_resource(LunchDishes, '/<int:id_day>/lunch')
 api.add_resource(DinnerDishes, '/<int:id_day>/dinner/<string:restaurant_type>')
+
+
+@app.after_request
+def add_cors_headers(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    # response.headers.add('Access-Control-Allow-Credentials', 'true')
+    # response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+    # response.headers.add('Access-Control-Allow-Headers', 'Cache-Control')
+    # response.headers.add('Access-Control-Allow-Headers', 'X-Requested-With')
+    # response.headers.add('Access-Control-Allow-Headers', 'Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET')  # POST, OPTIONS, PUT, DELETE')
+    return response
 
 if __name__ == '__main__':
     import init
