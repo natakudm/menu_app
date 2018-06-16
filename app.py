@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template
 from flask_restful import Api
 from resourses.restaurant import RestaurantList, Restaurant, TraditionalRestaurants
 from resourses.index import IndexRepr
@@ -9,7 +9,7 @@ from resourses.dinner_restaurant import DinnerRestaurant
 from resourses.breakfast import Breakfast
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='site')
 api = Api(app)
 
 
