@@ -1,12 +1,13 @@
 let url_page = 'http://127.0.0.1:5000/main';
 
 let rest_container = document.getElementById('container');
-//const meal = document.querySelector('meal');
-const remove = document.getElementById('wait');
+const wait = document.getElementById('wait');
 
 
 class UI{
     constructor(){
+        this.meal = document.createElement('div');
+            this.meal.className = 'meal';
         this.rest_name = document.createElement('h2');
             this.rest_name.className = 'restaurant_name';
         this.rest_image = document.createElement('img');
@@ -20,22 +21,26 @@ class UI{
     }
 
     paint(http){
-        //for(let i = 0; i < http.length; i++) {
-            this.rest_name.textContent = http[0].restaurant_name;
-            //  meal.textContent = http[0].restaurant_name;
-            rest_container.appendChild(this.rest_name);
-            this.rest_image.setAttribute('src', http[0].picture);
-            rest_container.appendChild(this.rest_image);
-            this.rest_time.textContent = `${http[0].time_open} - ${http[0].time_close}`;
-            rest_container.appendChild(this.rest_time);
-            this.rest_location.textContent = http[0].location;
-            rest_container.appendChild(this.rest_location);
-            if (http[0].meal_name = 'breakfast') {
+        wait.textContent = '';
+        for(let i = 0; i < http.length; i++) {
+
+            this.rest_name.textContent = http[i].restaurant_name;
+            this.meal.appendChild(this.rest_name);
+            this.rest_image.setAttribute('src', http[i].picture);
+            this.meal.appendChild(this.rest_image);
+            this.rest_time.textContent = `${http[i].time_open} - ${http[i].time_close}`;
+            this.meal.appendChild(this.rest_time);
+            this.rest_location.textContent = http[i].location;
+            this.meal.appendChild(this.rest_location);
+            if (http[i].meal_name === 'breakfast') {
                 this.menu_button.setAttribute('href', `breakfast.html?id_day=${id_day}`);
+                 this.meal.appendChild(this.menu_button);
             }
-            rest_container.appendChild(this.menu_button);
+
+
+            rest_container.appendChild(this.meal);
         }
-   // }
+    }
 }
 
 ui = new UI();
