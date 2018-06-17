@@ -8,15 +8,17 @@ class Connect{
             fetch(url)
             .then(res => res.json())
                 .then(data => resolve(data))
-                .catch(err => reject(data))
+              .catch(err => reject(data))
         });
     }
 }
 document.addEventListener('DOMContentLoaded', getData);
 
+http = new Connect;
+
 function getData() {
     http.get(url_page)
-        .then(result => ui.paint(result))
+        .then(result => {ui.paint(result)})
         .catch(err => console.log(err));
 }
 
