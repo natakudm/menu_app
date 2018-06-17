@@ -53,7 +53,7 @@ class UI{
                 this.menu_button.setAttribute('href', 'lunch.html');
             } else {
                 this.menu_button.setAttribute('href',
-                    `dinner_restaurant.html?meal_name=${http[i].meal_name}&restaurant_type=${http[i].restaurant_type}`);
+                    `dinner_restaurant.html?restaurant_type=${http[i].restaurant_type}`);
             }
 
             this.meal.appendChild(this.menu_button);
