@@ -21,34 +21,3 @@ function getData() {
         .then(result => {ui.paint(result)})
         .catch(err => console.log(err));
 }
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// let xhr = new XMLHttpRequest();
-//
-// xhr.open('GET', url_site, true);
-// xhr.send();
-//
-// xhr.onload = function(){
-//         let main = JSON.parse(this.responseText);
-//         console.log(main);
-// };
-//
-// xhr.onerror = function() {
-//     console.log('Error downloading api')
-//};
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// function httpGetAsync(theUrl, callback) {
-//     var xmlHttp = new XMLHttpRequest();
-//     xmlHttp.onreadystatechange = function() {
-//         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-//             callback(xmlHttp.responseText);
-//     }
-//     xmlHttp.open("GET", theUrl, true); // true for asynchronous
-//     xmlHttp.send(null);
-// }
-// httpGetAsync(url_site, function(response) {
-//     console.log(response);
-// });
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
