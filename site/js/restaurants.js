@@ -1,10 +1,5 @@
 let url_page = 'http://127.0.0.1:5000/restaurants';
-    // <div class="restaurant" id="1">
-    //     <h2 class="restaurant_name">Canaletto</h2>
-    //     <img src="">
-    //     <div class="restaurant_description"></div>
-    //     <div class="restaurant_location">DC 5 AFT</div>
-    // </div>
+
 
 class UI{
     constructor(){
@@ -20,7 +15,7 @@ class UI{
         this.restaurant_name = document.createElement('h2');
             this.restaurant_name.className = 'restaurant_name';
             this.restaurant_name.textContent = '' + http[i].name;
-            this.restaurant_name.setAttribute('id', `${http[i].id}`);
+            this.restaurant_name.setAttribute('id', `rest_id_${http[i].id}`);
             this.restaurant.appendChild(this.restaurant_name);
         this.rest_image = document.createElement('img');
             this.rest_image.className = 'restaurant_img';

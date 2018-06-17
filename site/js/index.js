@@ -22,7 +22,7 @@ class UI{
             }
         this.link_rest = document.createElement('a');
             this.link_rest.className = 'link_rest';
-            this.link_rest.setAttribute('href', `restaurants.html#${http[i].id}`);
+            this.link_rest.setAttribute('href', `restaurants.html#rest_id_${http[i].id}`);
                 this.rest_name = document.createElement('h3');
                     this.rest_name.className = 'restaurant_name';
                     this.rest_name.textContent = http[i].restaurant_name;
