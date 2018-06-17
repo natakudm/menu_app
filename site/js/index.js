@@ -1,15 +1,23 @@
 let url_page = 'http://127.0.0.1:5000/main';
 
-let rest_container = document.getElementById('container');
-const wait = document.getElementById('wait');
+
 
 
 class UI{
     constructor(){
+        this.rest_container = document.getElementById('container');
+        this.wait = document.getElementById('wait');
+        this.wait.textContent = '';
+    }
+
+    paint(http){
+        for(let i = 0; i < http.length; i++) {
         this.meal = document.createElement('div');
             this.meal.className = 'meal';
         this.rest_name = document.createElement('h2');
             this.rest_name.className = 'restaurant_name';
+            this.rest_name.textContent = http[i].restaurant_name;
+            this.meal.appendChild(this.rest_name);            
         this.rest_image = document.createElement('img');
             this.rest_image.className = 'restaurant_img';
         this.rest_time = document.createElement('div');
@@ -18,14 +26,7 @@ class UI{
             this.rest_location.className = 'rest_location';
         this.menu_button = document.createElement('a');
             this.menu_button.textContent = 'Watch menu';
-    }
 
-    paint(http){
-        wait.textContent = '';
-        for(let i = 0; i < http.length; i++) {
-
-            this.rest_name.textContent = http[i].restaurant_name;
-            this.meal.appendChild(this.rest_name);
             this.rest_image.setAttribute('src', http[i].picture);
             this.meal.appendChild(this.rest_image);
             this.rest_time.textContent = `${http[i].time_open} - ${http[i].time_close}`;
@@ -36,9 +37,7 @@ class UI{
                 this.menu_button.setAttribute('href', `breakfast.html?id_day=${id_day}`);
                  this.meal.appendChild(this.menu_button);
             }
-
-
-            rest_container.appendChild(this.meal);
+            this.rest_container.appendChild(this.meal);
         }
     }
 }
