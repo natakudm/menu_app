@@ -42,7 +42,7 @@ class DishModel:
             return dishes, 200
 
     @classmethod
-    def load_random_dish(cls, day, meal_name, restaurant_type):
+    def load_random_dish_from_meal(cls, day, meal_name, restaurant_type):
         with CursorFromConnectionFromPool() as cursor:
             try:
                 cursor.execute('SELECT * FROM dish_view '
@@ -53,6 +53,17 @@ class DishModel:
             except:
                 return {'message': 'dish for {0} day {1} meal time and {2} restaurant type not found'.
                         format(day, meal_name, restaurant_type)}, 404
+
+    @classmethod
+    def load_random_dishes(cls, id_day):
+        with CursorFromConnectionFromPool() as cursor:
+            cursor.execute('SELECT * FROM dish_view WHERE id_day = %s ORDER BY random() LIMIT 3;', (id_day,))
+            all_data = cursor.fetchall()
+            dishes = []
+            for data in all_data:
+                dishes.append(vars(cls(*data)))
+            return dishes
+
 
     @classmethod
     def load_lunch_dishes(cls, id_day):

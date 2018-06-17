@@ -9,11 +9,17 @@ class Dish(Resource):
         return dish
 
 
-class RandomDish(Resource):
+class RandomDishFromMeal(Resource):
     @staticmethod
     def get(id_day, meal_name, restaurant_type):
-        random_dish = DishModel.load_random_dish(id_day, meal_name, restaurant_type)
+        random_dish = DishModel.load_random_dish_from_meal(id_day, meal_name, restaurant_type)
         return random_dish
+
+
+class RandomDishes(Resource):
+    @staticmethod
+    def get(id_day):
+        return DishModel.load_random_dishes(id_day)
 
 
 class LunchDishes(Resource):
