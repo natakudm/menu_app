@@ -14,12 +14,13 @@ class UI{
     paint(http){
         for(let i = 0; i < http.length; i++) {
         this.meal = document.createElement('div');
-            this.meal.className = 'meal';
+            this.meal.className = 'meal col-lg-4 col-md-6';
         this.meal_name = document.createElement('h2');
-            this.meal_name.className = 'meal_name ' + http[i].meal_name;
-            if(this.meal_name.className === 'meal_name dinner' && this.meal_name.className === `meal_name ${http[i-1].meal_name}`)
+            this.meal_name.className = 'meal_name_' + http[i].meal_name;
+            if(this.meal_name.className === 'meal_name_dinner' && this.meal_name.className === `meal_name_${http[i-1].meal_name}`)
                 this.meal_name.textContent = '';
             else {
+                this.meal_name.className = 'meal_name_' + http[i].meal_name + ' col-lg-12';
                 this.meal_name.textContent = http[i].meal_name.firstLetterCaps() + ' time';
                 this.meal.appendChild(this.meal_name);
             }
@@ -31,7 +32,7 @@ class UI{
                     this.rest_name.textContent = http[i].restaurant_name;
                     this.link_rest.appendChild(this.rest_name);
                 this.rest_image = document.createElement('img');
-                    this.rest_image.className = 'img-responsive img-rounded';
+                    this.rest_image.className = 'img-responsive img-rounded centered';
                     this.rest_image.setAttribute('src', http[i].picture);
                     this.link_rest.appendChild(this.rest_image);
             this.meal.appendChild(this.link_rest);
@@ -48,6 +49,7 @@ class UI{
             this.rest_location.textContent = http[i].location;
             this.meal.appendChild(this.rest_location);
         this.menu_button = document.createElement('a');
+            this.menu_button.className = 'menu_button btn btn-primary';
             this.menu_button.textContent = 'Watch menu';
             if (http[i].meal_name === 'breakfast') {
                 this.menu_button.setAttribute('href', 'breakfast.html');
