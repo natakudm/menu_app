@@ -9,8 +9,8 @@ class UI {
     }
 
     paint(http) {
-        this.dish_sp = document.createElement('h3');
-        this.dish_sp.className = 'special lunch';
+        this.dish_sp = document.createElement('h2');
+        this.dish_sp.className = 'special lunch centered';
         this.dish_sp.textContent = 'Today lunch special ';
         this.rest_container.appendChild(this.dish_sp);
 
@@ -51,8 +51,8 @@ class UI {
         this.clear.className = 'clearfix';
         this.rest_container.appendChild(this.clear);
 
-        this.dish_aa = document.createElement('h3');
-        this.dish_aa.className = 'aa lunch';
+        this.dish_aa = document.createElement('h2');
+        this.dish_aa.className = 'lunch centered';
         this.dish_aa.textContent = 'Always available princess favorites';
         this.rest_container.appendChild(this.dish_aa);
 

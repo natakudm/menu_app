@@ -21,8 +21,8 @@ class UI {
     }
 
     paint(http) {
-        this.dish_sp = document.createElement('h3');
-        this.dish_sp.className = 'special dinner';
+        this.dish_sp = document.createElement('h2');
+        this.dish_sp.className = 'dinner centered';
         this.dish_sp.textContent = 'Today dinner special ';
         this.rest_container.appendChild(this.dish_sp);
 
@@ -30,7 +30,7 @@ class UI {
             this.id_day = http[i].id_day;
             if (this.id_day !== 0) {
                 this.dish = document.createElement('div');
-                this.dish.className = 'menu_dish special';
+                this.dish.className = 'menu_dish col-lg-6 col-md-6';
                 this.dish_href = document.createElement('a');
                 this.dish_href.className = 'dish_href';
                 this.dish_href.setAttribute('href', `dish.html?dish_id=${http[i].id}`);
@@ -40,7 +40,7 @@ class UI {
                 this.dish_name.textContent = http[i].name;
                 this.dish_href.appendChild(this.dish_name);
                 this.description = document.createElement('div');
-                this.description.className = 'dish_description';
+                this.description.className = 'description';
                 this.description.textContent = http[i].description;
                 this.dish.appendChild(this.description);
 
@@ -60,8 +60,13 @@ class UI {
                 this.rest_container.appendChild(this.dish);
             }
         }
-        this.dish_aa = document.createElement('h3');
-        this.dish_aa.className = 'aa dinner';
+
+        this.clear = document.createElement('div');
+        this.clear.className = 'clearfix';
+        this.rest_container.appendChild(this.clear);
+
+        this.dish_aa = document.createElement('h2');
+        this.dish_aa.className = 'dinner centered';
         this.dish_aa.textContent = 'Always available princess favorites';
         this.rest_container.appendChild(this.dish_aa);
 
@@ -69,7 +74,7 @@ class UI {
             this.id_day = http[i].id_day;
             if (this.id_day === 0) {
                 this.dish = document.createElement('div');
-                    this.dish.className = 'menu_dish aa';
+                    this.dish.className = 'menu_dish col-lg-6 col-md-6';
                 this.dish_href = document.createElement('a');
                     this.dish_href.className = 'dish_href';
                     this.dish_href.setAttribute('href', `dish.html?dish_id=${http[i].id}`);
@@ -79,7 +84,7 @@ class UI {
                     this.dish_name.textContent = http[i].name;
                     this.dish_href.appendChild(this.dish_name);
                 this.description = document.createElement('div');
-                    this.description.className = 'dish_description';
+                    this.description.className = 'description';
                 this.description.textContent = http[i].description;
                     this.dish.appendChild(this.description);
 

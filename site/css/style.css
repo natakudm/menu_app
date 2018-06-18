@@ -29,6 +29,9 @@ h1, h2, h3,h4, h5, h6 {
     margin: 0 auto;
     align-content: center;
 }
+.wine a {
+    color: #333;
+}
 a {
     color: #f85c37;
     text-decoration: underline;
