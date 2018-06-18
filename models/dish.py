@@ -75,7 +75,7 @@ class DishModel:
                            'LEFT JOIN meal ON dish.id_meal = meal.id '
                            'LEFT JOIN restaurant ON meal.id_restaurant = restaurant.id '
                            'WHERE (dish.id_day = 0 OR dish.id_day = %s) '
-                           'AND meal.name = \'lunch\'', (id_day,))
+                           'AND meal.name = \'lunch\' ORDER BY dish.id', (id_day,))
 
             all_data = cursor.fetchall()
             dishes = []
@@ -93,7 +93,7 @@ class DishModel:
                            'LEFT JOIN meal ON dish.id_meal = meal.id '
                            'LEFT JOIN restaurant ON meal.id_restaurant = restaurant.id '
                            'WHERE (dish.id_day = 0 OR dish.id_day = %s) '
-                           'AND meal.name = \'dinner\' AND restaurant.restaurant_type=%s', (id_day, restaurant_type))
+                           'AND meal.name = \'dinner\' AND restaurant.restaurant_type=%s ORDER BY dish.id', (id_day, restaurant_type))
             dishes = []
             all_data = cursor.fetchall()
             for data in all_data:

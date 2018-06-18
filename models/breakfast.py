@@ -25,7 +25,7 @@ class BreakfastModel:
                            'meal.time_open, meal.time_close  FROM public.dish '
                            'LEFT JOIN public.meal ON dish.id_meal = meal.id '
                            'LEFT JOIN public.restaurant ON meal.id_restaurant = restaurant.id '
-                           'WHERE (dish.id_day = 0 or dish.id_day = %s) AND dish.category = \'breakfast\';', (id_day,))
+                           'WHERE (dish.id_day = 0 or dish.id_day = %s) AND dish.category = \'breakfast\'; ORDER BY dish.id', (id_day,))
             all_data = cursor.fetchall()
             dishes = []
             for data in all_data:

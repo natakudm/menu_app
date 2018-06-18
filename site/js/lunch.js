@@ -31,7 +31,6 @@ class UI {
                 this.description.className = 'dish_description';
                 this.description.textContent = http[i].description;
                 this.dish.appendChild(this.description);
-
                 if (http[i].recomended_wine !== null) {
                     this.wine = document.createElement('div');
                     this.wine.className = 'wine';
