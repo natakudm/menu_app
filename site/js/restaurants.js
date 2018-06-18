@@ -18,7 +18,7 @@ class UI{
             this.restaurant_name.setAttribute('id', `rest_id_${http[i].id}`);
             this.restaurant.appendChild(this.restaurant_name);
         this.rest_image = document.createElement('img');
-            this.rest_image.className = 'restaurant_img centered';
+            this.rest_image.className = 'restaurant_img centered img-responsive img-rounded';
             this.rest_image.setAttribute('src', http[i].picture);
             this.restaurant.appendChild(this.rest_image);
         this.restaurant_type = document.createElement('div');

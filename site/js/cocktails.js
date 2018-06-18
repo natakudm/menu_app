@@ -10,13 +10,13 @@ class UI {
     paint(http) {
         for (let i = 0; i < http.length; i++) {
             this.cocktail = document.createElement('div');
-                this.cocktail.className = 'cocktail';
+                this.cocktail.className = 'cocktail col-lg-6 col-md-6';
             this.cocktail_name = document.createElement('h2');
                 this.cocktail_name.className = 'cocktail_name';
                 this.cocktail_name.textContent = http[i].name;
                 this.cocktail.appendChild(this.cocktail_name);
             this.cocktail_image = document.createElement('img');
-                this.cocktail_image.className = 'cocktail_img';
+                this.cocktail_image.className = 'cocktail_img img-responsive img-rounded centered';
                 this.cocktail_image.setAttribute('src', http[i].picture);
                 this.cocktail.appendChild(this.cocktail_image);
             this.description = document.createElement('div');

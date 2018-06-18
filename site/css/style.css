@@ -41,9 +41,9 @@ a:hover, a:focus {
     font-weight: 600;
     padding-right: 30px;
 }
-button.navbar-toggle {
-    margin-right: 100px;
-}
+/*button.navbar-toggle {*/
+    /*margin-right: 100px;*/
+/*}*/
 #container {
     padding-top: 50px;
 
