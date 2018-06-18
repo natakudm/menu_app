@@ -5,7 +5,6 @@ from resourses.index import IndexRepr
 from resourses.wine import Wine, RandomWine
 from resourses.cocktail import CocktailsOfTheDay
 from resourses.dish import Dish, RandomDishFromMeal, LunchDishes, DinnerDishes, RandomDishes
-from resourses.dinner_restaurant import DinnerRestaurant
 from resourses.breakfast import Breakfast
 
 
@@ -27,7 +26,6 @@ api.add_resource(CocktailsOfTheDay, '/<int:id_day>/cocktails')
 api.add_resource(Dish, '/dish/<int:_id>')
 api.add_resource(RandomDishFromMeal, '/<int:id_day>/<string:meal_name>/<string:restaurant_type>')
 api.add_resource(RandomDishes, '/<int:id_day>/dishes')
-api.add_resource(DinnerRestaurant, '/<int:id_day>/dinner')
 api.add_resource(Breakfast, '/<int:id_day>/breakfast')
 api.add_resource(LunchDishes, '/<int:id_day>/lunch')
 api.add_resource(DinnerDishes, '/<int:id_day>/dinner/<string:restaurant_type>')
