@@ -18,7 +18,7 @@ class UI {
             this.id_day = http[i].id_day;
             if (this.id_day !== 0) {
                 this.dish = document.createElement('div');
-                this.dish.className = 'menu_dish special_br';
+                this.dish.className = 'menu_dish special';
                 this.dish_href = document.createElement('a');
                 this.dish_href.className = 'dish_href';
                 this.dish_href.setAttribute('href', `dish.html?dish_id=${http[i].id}`);
@@ -57,7 +57,7 @@ class UI {
             this.id_day = http[i].id_day;
             if (this.id_day === 0) {
                 this.dish = document.createElement('div');
-                    this.dish.className = 'menu_dish special';
+                    this.dish.className = 'menu_dish aa';
                 this.dish_href = document.createElement('a');
                     this.dish_href.className = 'dish_href';
                     this.dish_href.setAttribute('href', `dish.html?dish_id=${http[i].id}`);
