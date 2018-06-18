@@ -21,19 +21,19 @@ class UI {
 
     paint(http) {
         this.dish = document.createElement('div');
-            this.dish.className = 'dish';
+            this.dish.className = 'dish col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3';
         this.dish_name = document.createElement('h2');
             this.dish_name.className = 'dish_name';
             this.dish_name.textContent = http.name;
             this.dish.appendChild(this.dish_name);
-        this.dish_image = document.createElement('img');
-            this.dish_image.className = 'dish_img';
-            this.dish_image.setAttribute('src', http.picture);
-            this.dish.appendChild(this.dish_image);
         this.description = document.createElement('div');
-            this.description.className = 'dish_description';
+            this.description.className = 'description';
             this.description.textContent = http.description;
             this.dish.appendChild(this.description);
+        this.dish_image = document.createElement('img');
+            this.dish_image.className = 'dish_img img-responsive img-rounded';
+            this.dish_image.setAttribute('src', http.picture);
+            this.dish.appendChild(this.dish_image);
         this.restaurant_name = document.createElement('div');
             this.restaurant_name.className = 'restaurant_name';
             this.restaurant_name.textContent = `Served in ${http.restaurant_name} dining room for ${http.meal_name}`;

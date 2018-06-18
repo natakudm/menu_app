@@ -20,7 +20,7 @@ class UI {
                 this.cocktail_image.setAttribute('src', http[i].picture);
                 this.cocktail.appendChild(this.cocktail_image);
             this.description = document.createElement('div');
-                this.description.className = 'cocktail_description';
+                this.description.className = 'description';
                 this.description.textContent = http[i].description;
                 this.cocktail.appendChild(this.description);
             this.price = document.createElement('div');
