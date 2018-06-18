@@ -1,5 +1,8 @@
 let url_page = 'http://127.0.0.1:5000/main';
 
+String.prototype.firstLetterCaps = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
 
 class UI{
     constructor(){
@@ -17,7 +20,7 @@ class UI{
             if(this.meal_name.className === 'meal_name dinner' && this.meal_name.className === `meal_name ${http[i-1].meal_name}`)
                 this.meal_name.textContent = '';
             else {
-                this.meal_name.textContent = http[i].meal_name + ' time';
+                this.meal_name.textContent = http[i].meal_name.firstLetterCaps() + ' time';
                 this.meal.appendChild(this.meal_name);
             }
         this.link_rest = document.createElement('a');
@@ -28,7 +31,7 @@ class UI{
                     this.rest_name.textContent = http[i].restaurant_name;
                     this.link_rest.appendChild(this.rest_name);
                 this.rest_image = document.createElement('img');
-                    this.rest_image.className = 'restaurant_img';
+                    this.rest_image.className = 'img-responsive img-rounded';
                     this.rest_image.setAttribute('src', http[i].picture);
                     this.link_rest.appendChild(this.rest_image);
             this.meal.appendChild(this.link_rest);
