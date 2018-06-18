@@ -14,16 +14,24 @@ class UI{
     paint(http){
         for(let i = 0; i < http.length; i++) {
         this.meal = document.createElement('div');
-            this.meal.className = 'meal col-lg-4 col-md-6';
+            this.meal.className = 'meal col-lg-6 col-md-6';
+
         this.meal_name = document.createElement('h2');
             this.meal_name.className = 'meal_name_' + http[i].meal_name;
             if(this.meal_name.className === 'meal_name_dinner' && this.meal_name.className === `meal_name_${http[i-1].meal_name}`)
                 this.meal_name.textContent = '';
             else {
-                this.meal_name.className = 'meal_name_' + http[i].meal_name + ' col-lg-12';
+                this.meal_name.className = 'meal_name_' + http[i].meal_name;
                 this.meal_name.textContent = http[i].meal_name.firstLetterCaps() + ' time';
                 this.meal.appendChild(this.meal_name);
             }
+            // if(this.meal_name.className === 'meal_name_dinner'){
+            //     // <div class="clearfix hidden-xs hidden-sm"></div>
+            //     this.clear = document.createElement('div');
+            //     this.clear.className = 'clearfix';
+            //     this.clear.textContent = '';
+            //     this.rest_container.appendChild(clear);
+            // }
         this.link_rest = document.createElement('a');
             this.link_rest.className = 'link_rest';
             this.link_rest.setAttribute('href', `restaurants.html#rest_id_${http[i].id}`);

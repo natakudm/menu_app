@@ -6,7 +6,8 @@ body{
     font-weight: 300;
     font-size: 16px;
     color: #555;
-    width: 98%;
+    width: 97%;
+
     margin: 0 auto;
 
     -webkit-font-smoothing: antialiased;
@@ -15,16 +16,18 @@ body{
 
 h1, h2, h3,h4, h5, h6 {
     font-family: "Raleway", Helvetica, Arial, sans-serif;
-    font-weight: 300;
+    font-weight: 500;
+    padding: 1em;
     color: #333;
 }
-.meal {
+.meal, .container{
     line-height: 28px;
     margin-bottom: 25px;
 }
 .centered {
     text-align: center;
     margin: 0 auto;
+    align-content: center;
 }
 a {
     color: #f85c37;
@@ -39,8 +42,18 @@ a:hover, a:focus {
     padding-right: 30px;
 }
 button.navbar-toggle {
-    margin-right: -20px;
+    margin-right: 100px;
 }
 #container {
     padding-top: 50px;
+
+}
+.description, .location {
+    line-height: 1.5em;
+}
+.price {
+    color: black;
+}
+.restaurant_name {
+    padding-left: 0;
 }
