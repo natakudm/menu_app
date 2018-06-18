@@ -29,7 +29,6 @@ class UI{
             //     // <div class="clearfix hidden-xs hidden-sm"></div>
             //     this.clear = document.createElement('div');
             //     this.clear.className = 'clearfix';
-            //     this.clear.textContent = '';
             //     this.rest_container.appendChild(clear);
             // }
         this.link_rest = document.createElement('a');

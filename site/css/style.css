@@ -31,15 +31,19 @@ h1, h2, h3,h4, h5, h6 {
 }
 a {
     color: #f85c37;
+    text-decoration: underline;
 }
 a:hover, a:focus {
     color: #7b7b7b;
     text-decoration: none;
     outline: 0;
 }
-.navbar {
+.navbar{
     font-weight: 600;
     padding-right: 30px;
+}
+.navbar a{
+    text-decoration: none;
 }
 /*button.navbar-toggle {*/
     /*margin-right: 100px;*/
@@ -58,3 +62,4 @@ a:hover, a:focus {
 .restaurant_name {
     padding-left: 0;
 }
+

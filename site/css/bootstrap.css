@@ -3117,17 +3117,20 @@ fieldset[disabled] .btn-default.focus {
   color: #fff;
   background-color: #101010;
   border-color: black;
+    text-decoration: none;
 }
 .btn-primary:focus,
 .btn-primary.focus {
   color: #fff;
   background-color: black;
   border-color: #101010;
+     text-decoration: none;
 }
 .btn-primary:hover {
   color: #fff;
   background-color: black;
   border-color: #101010;
+  text-decoration: none;
 }
 .btn-primary:active,
 .btn-primary.active,

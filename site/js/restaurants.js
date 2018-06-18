@@ -10,6 +10,11 @@ class UI{
 
     paint(http){
         for(let i = 0; i < http.length; i++) {
+            if(i%2 === 0 && i !==0){
+                this.clear = document.createElement('div');
+                this.clear.className = 'clearfix';
+                this.rest_container.appendChild(this.clear);
+            }
         this.restaurant = document.createElement('div');
             this.restaurant.className = 'restaurant col-lg-6 col-md-6';
         this.restaurant_name = document.createElement('h2');
