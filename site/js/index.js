@@ -14,7 +14,7 @@ class UI{
     paint(http){
         for(let i = 0; i < http.length; i++) {
         this.meal = document.createElement('div');
-            this.meal.className = 'meal col-lg-6 col-md-6';
+            this.meal.className = 'meal col-lg-4 col-md-6';
 
         this.meal_name = document.createElement('h2');
             this.meal_name.className = 'meal_name_' + http[i].meal_name;

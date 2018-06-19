@@ -25,11 +25,11 @@ class UI {
                 this.dish.appendChild(this.dish_href);
                 this.dish_name = document.createElement('h4');
                 this.dish_name.className = 'dish_name';
-                this.dish_name.textContent = http[i].name;
+                this.dish_name.textContent = http[i].name.replace("\u00a0", " ");
                 this.dish_href.appendChild(this.dish_name);
                 this.description = document.createElement('div');
                 this.description.className = 'description';
-                this.description.textContent = http[i].description;
+                this.description.textContent = http[i].description.replace("\u00a0", " ");
                 this.dish.appendChild(this.description);
                 if (http[i].recomended_wine !== null) {
                     this.wine = document.createElement('div');
@@ -67,11 +67,11 @@ class UI {
                     this.dish.appendChild(this.dish_href);
                 this.dish_name = document.createElement('h4');
                     this.dish_name.className = 'dish_name';
-                    this.dish_name.textContent = http[i].name;
+                    this.dish_name.textContent = http[i].name.replace("\u00a0", " ");
                     this.dish_href.appendChild(this.dish_name);
                 this.description = document.createElement('div');
                     this.description.className = 'description';
-                this.description.textContent = http[i].description;
+                this.description.textContent = http[i].description.replace("\u00a0", " ");
                     this.dish.appendChild(this.description);
 
                if (http[i].recomended_wine !== null) {
