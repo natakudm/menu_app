@@ -1,4 +1,4 @@
-let url_page = 'http://127.0.0.1:5000/main';
+let url_page = 'https://menuap.herokuapp.com/main';
 
 String.prototype.firstLetterCaps = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);

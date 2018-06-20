@@ -1,4 +1,4 @@
-let url_page = `http://127.0.0.1:5000/${id_day}/lunch`;
+let url_page = `https://menuap.herokuapp.com/${id_day}/lunch`;
 
 
 class UI {

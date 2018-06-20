@@ -9,7 +9,7 @@ let search_str = window.location.search.replace('?', '').split('&').reduce(
 console.log(search_str);
 let id_wine = search_str.wine_id;
 
-let url_page = `http://127.0.0.1:5000/wine/${id_wine}`;
+let url_page = `https://menuap.herokuapp.com/wine/${id_wine}`;
 
 
 class UI {
