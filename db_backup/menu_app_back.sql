@@ -1,5 +1,5 @@
 --
--- PostgreSQL database dump
+-- natalyaQL database dump
 --
 
 -- Dumped from database version 9.6.9
@@ -20,13 +20,13 @@ SET row_security = off;
 DROP DATABASE natalya;
 --
 -- TOC entry 2245 (class 1262 OID 16387)
--- Name: natalya; Type: DATABASE; Schema: -; Owner: postgres
+-- Name: natalya; Type: DATABASE; Schema: -; Owner: natalya
 --
 
 CREATE DATABASE natalya WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C' LC_CTYPE = 'C';
 
 
-ALTER DATABASE natalya OWNER TO postgres;
+ALTER DATABASE natalya OWNER TO natalya;
 
 \connect natalya
 
@@ -59,7 +59,7 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 --
 -- TOC entry 588 (class 1247 OID 16424)
--- Name: dish_enum_type; Type: TYPE; Schema: public; Owner: postgres
+-- Name: dish_enum_type; Type: TYPE; Schema: public; Owner: natalya
 --
 
 CREATE TYPE public.dish_enum_type AS ENUM (
@@ -76,11 +76,11 @@ CREATE TYPE public.dish_enum_type AS ENUM (
 );
 
 
-ALTER TYPE public.dish_enum_type OWNER TO postgres;
+ALTER TYPE public.dish_enum_type OWNER TO natalya;
 
 --
 -- TOC entry 529 (class 1247 OID 16414)
--- Name: meal_enum_type; Type: TYPE; Schema: public; Owner: postgres
+-- Name: meal_enum_type; Type: TYPE; Schema: public; Owner: natalya
 --
 
 CREATE TYPE public.meal_enum_type AS ENUM (
@@ -92,11 +92,11 @@ CREATE TYPE public.meal_enum_type AS ENUM (
 );
 
 
-ALTER TYPE public.meal_enum_type OWNER TO postgres;
+ALTER TYPE public.meal_enum_type OWNER TO natalya;
 
 --
 -- TOC entry 497 (class 1247 OID 16407)
--- Name: restaurant_enum_type; Type: TYPE; Schema: public; Owner: postgres
+-- Name: restaurant_enum_type; Type: TYPE; Schema: public; Owner: natalya
 --
 
 CREATE TYPE public.restaurant_enum_type AS ENUM (
@@ -108,7 +108,7 @@ CREATE TYPE public.restaurant_enum_type AS ENUM (
 );
 
 
-ALTER TYPE public.restaurant_enum_type OWNER TO postgres;
+ALTER TYPE public.restaurant_enum_type OWNER TO natalya;
 
 SET default_tablespace = '';
 
@@ -116,7 +116,7 @@ SET default_with_oids = false;
 
 --
 -- TOC entry 199 (class 1259 OID 16475)
--- Name: dish; Type: TABLE; Schema: public; Owner: postgres
+-- Name: dish; Type: TABLE; Schema: public; Owner: natalya
 --
 
 CREATE TABLE public.dish (
@@ -131,11 +131,11 @@ CREATE TABLE public.dish (
 );
 
 
-ALTER TABLE public.dish OWNER TO postgres;
+ALTER TABLE public.dish OWNER TO natalya;
 
 --
 -- TOC entry 192 (class 1259 OID 16444)
--- Name: meal; Type: TABLE; Schema: public; Owner: postgres
+-- Name: meal; Type: TABLE; Schema: public; Owner: natalya
 --
 
 CREATE TABLE public.meal (
@@ -147,11 +147,11 @@ CREATE TABLE public.meal (
 );
 
 
-ALTER TABLE public.meal OWNER TO postgres;
+ALTER TABLE public.meal OWNER TO natalya;
 
 --
 -- TOC entry 187 (class 1259 OID 16388)
--- Name: restaurant_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: restaurant_id_seq; Type: SEQUENCE; Schema: public; Owner: natalya
 --
 
 CREATE SEQUENCE public.restaurant_id_seq
@@ -162,11 +162,11 @@ CREATE SEQUENCE public.restaurant_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.restaurant_id_seq OWNER TO postgres;
+ALTER TABLE public.restaurant_id_seq OWNER TO natalya;
 
 --
 -- TOC entry 190 (class 1259 OID 16435)
--- Name: restaurant; Type: TABLE; Schema: public; Owner: postgres
+-- Name: restaurant; Type: TABLE; Schema: public; Owner: natalya
 --
 
 CREATE TABLE public.restaurant (
@@ -180,11 +180,11 @@ CREATE TABLE public.restaurant (
 );
 
 
-ALTER TABLE public.restaurant OWNER TO postgres;
+ALTER TABLE public.restaurant OWNER TO natalya;
 
 --
 -- TOC entry 204 (class 1259 OID 16665)
--- Name: breakfast_view; Type: VIEW; Schema: public; Owner: postgres
+-- Name: breakfast_view; Type: VIEW; Schema: public; Owner: natalya
 --
 
 CREATE VIEW public.breakfast_view AS
@@ -199,11 +199,11 @@ CREATE VIEW public.breakfast_view AS
      LEFT JOIN public.restaurant ON ((meal.id_restaurant = restaurant.id)));
 
 
-ALTER TABLE public.breakfast_view OWNER TO postgres;
+ALTER TABLE public.breakfast_view OWNER TO natalya;
 
 --
 -- TOC entry 189 (class 1259 OID 16392)
--- Name: cocktail; Type: TABLE; Schema: public; Owner: postgres
+-- Name: cocktail; Type: TABLE; Schema: public; Owner: natalya
 --
 
 CREATE TABLE public.cocktail (
@@ -216,11 +216,11 @@ CREATE TABLE public.cocktail (
 );
 
 
-ALTER TABLE public.cocktail OWNER TO postgres;
+ALTER TABLE public.cocktail OWNER TO natalya;
 
 --
 -- TOC entry 188 (class 1259 OID 16390)
--- Name: cocktail_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: cocktail_id_seq; Type: SEQUENCE; Schema: public; Owner: natalya
 --
 
 CREATE SEQUENCE public.cocktail_id_seq
@@ -231,12 +231,12 @@ CREATE SEQUENCE public.cocktail_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.cocktail_id_seq OWNER TO postgres;
+ALTER TABLE public.cocktail_id_seq OWNER TO natalya;
 
 --
 -- TOC entry 2249 (class 0 OID 0)
 -- Dependencies: 188
--- Name: cocktail_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: cocktail_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: natalya
 --
 
 ALTER SEQUENCE public.cocktail_id_seq OWNED BY public.cocktail.id;
@@ -244,7 +244,7 @@ ALTER SEQUENCE public.cocktail_id_seq OWNED BY public.cocktail.id;
 
 --
 -- TOC entry 193 (class 1259 OID 16448)
--- Name: cruise; Type: TABLE; Schema: public; Owner: postgres
+-- Name: cruise; Type: TABLE; Schema: public; Owner: natalya
 --
 
 CREATE TABLE public.cruise (
@@ -254,11 +254,11 @@ CREATE TABLE public.cruise (
 );
 
 
-ALTER TABLE public.cruise OWNER TO postgres;
+ALTER TABLE public.cruise OWNER TO natalya;
 
 --
 -- TOC entry 195 (class 1259 OID 16456)
--- Name: day; Type: TABLE; Schema: public; Owner: postgres
+-- Name: day; Type: TABLE; Schema: public; Owner: natalya
 --
 
 CREATE TABLE public.day (
@@ -270,11 +270,11 @@ CREATE TABLE public.day (
 );
 
 
-ALTER TABLE public.day OWNER TO postgres;
+ALTER TABLE public.day OWNER TO natalya;
 
 --
 -- TOC entry 194 (class 1259 OID 16454)
--- Name: day_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: day_id_seq; Type: SEQUENCE; Schema: public; Owner: natalya
 --
 
 CREATE SEQUENCE public.day_id_seq
@@ -285,12 +285,12 @@ CREATE SEQUENCE public.day_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.day_id_seq OWNER TO postgres;
+ALTER TABLE public.day_id_seq OWNER TO natalya;
 
 --
 -- TOC entry 2250 (class 0 OID 0)
 -- Dependencies: 194
--- Name: day_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: day_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: natalya
 --
 
 ALTER SEQUENCE public.day_id_seq OWNED BY public.day.id;
@@ -298,7 +298,7 @@ ALTER SEQUENCE public.day_id_seq OWNED BY public.day.id;
 
 --
 -- TOC entry 203 (class 1259 OID 16656)
--- Name: dinner_restaurant_view; Type: VIEW; Schema: public; Owner: postgres
+-- Name: dinner_restaurant_view; Type: VIEW; Schema: public; Owner: natalya
 --
 
 CREATE VIEW public.dinner_restaurant_view AS
@@ -312,11 +312,11 @@ CREATE VIEW public.dinner_restaurant_view AS
      LEFT JOIN public.meal ON (((meal.id_restaurant = restaurant.id) AND (meal.name = 'dinner'::public.meal_enum_type))));
 
 
-ALTER TABLE public.dinner_restaurant_view OWNER TO postgres;
+ALTER TABLE public.dinner_restaurant_view OWNER TO natalya;
 
 --
 -- TOC entry 197 (class 1259 OID 16465)
--- Name: wine; Type: TABLE; Schema: public; Owner: postgres
+-- Name: wine; Type: TABLE; Schema: public; Owner: natalya
 --
 
 CREATE TABLE public.wine (
@@ -329,11 +329,11 @@ CREATE TABLE public.wine (
 );
 
 
-ALTER TABLE public.wine OWNER TO postgres;
+ALTER TABLE public.wine OWNER TO natalya;
 
 --
 -- TOC entry 201 (class 1259 OID 16611)
--- Name: dinner_view; Type: VIEW; Schema: public; Owner: postgres
+-- Name: dinner_view; Type: VIEW; Schema: public; Owner: natalya
 --
 
 CREATE VIEW public.dinner_view AS
@@ -355,11 +355,11 @@ CREATE VIEW public.dinner_view AS
   ORDER BY dish.id;
 
 
-ALTER TABLE public.dinner_view OWNER TO postgres;
+ALTER TABLE public.dinner_view OWNER TO natalya;
 
 --
 -- TOC entry 198 (class 1259 OID 16473)
--- Name: dish_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: dish_id_seq; Type: SEQUENCE; Schema: public; Owner: natalya
 --
 
 CREATE SEQUENCE public.dish_id_seq
@@ -370,12 +370,12 @@ CREATE SEQUENCE public.dish_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.dish_id_seq OWNER TO postgres;
+ALTER TABLE public.dish_id_seq OWNER TO natalya;
 
 --
 -- TOC entry 2251 (class 0 OID 0)
 -- Dependencies: 198
--- Name: dish_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: dish_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: natalya
 --
 
 ALTER SEQUENCE public.dish_id_seq OWNED BY public.dish.id;
@@ -383,7 +383,7 @@ ALTER SEQUENCE public.dish_id_seq OWNED BY public.dish.id;
 
 --
 -- TOC entry 202 (class 1259 OID 16643)
--- Name: dish_view; Type: VIEW; Schema: public; Owner: postgres
+-- Name: dish_view; Type: VIEW; Schema: public; Owner: natalya
 --
 
 CREATE VIEW public.dish_view AS
@@ -404,11 +404,11 @@ CREATE VIEW public.dish_view AS
      LEFT JOIN public.restaurant ON ((meal.id_restaurant = restaurant.id)));
 
 
-ALTER TABLE public.dish_view OWNER TO postgres;
+ALTER TABLE public.dish_view OWNER TO natalya;
 
 --
 -- TOC entry 200 (class 1259 OID 16603)
--- Name: lunch_view; Type: VIEW; Schema: public; Owner: postgres
+-- Name: lunch_view; Type: VIEW; Schema: public; Owner: natalya
 --
 
 CREATE VIEW public.lunch_view AS
@@ -434,11 +434,11 @@ CREATE VIEW public.lunch_view AS
   WHERE (((dish.id_day = 0) OR (dish.id_day = 1)) AND (meal.name = 'lunch'::public.meal_enum_type));
 
 
-ALTER TABLE public.lunch_view OWNER TO postgres;
+ALTER TABLE public.lunch_view OWNER TO natalya;
 
 --
 -- TOC entry 191 (class 1259 OID 16442)
--- Name: meal_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: meal_id_seq; Type: SEQUENCE; Schema: public; Owner: natalya
 --
 
 CREATE SEQUENCE public.meal_id_seq
@@ -449,12 +449,12 @@ CREATE SEQUENCE public.meal_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.meal_id_seq OWNER TO postgres;
+ALTER TABLE public.meal_id_seq OWNER TO natalya;
 
 --
 -- TOC entry 2252 (class 0 OID 0)
 -- Dependencies: 191
--- Name: meal_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: meal_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: natalya
 --
 
 ALTER SEQUENCE public.meal_id_seq OWNED BY public.meal.id;
@@ -462,7 +462,7 @@ ALTER SEQUENCE public.meal_id_seq OWNED BY public.meal.id;
 
 --
 -- TOC entry 196 (class 1259 OID 16463)
--- Name: vine_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: vine_id_seq; Type: SEQUENCE; Schema: public; Owner: natalya
 --
 
 CREATE SEQUENCE public.vine_id_seq
@@ -473,12 +473,12 @@ CREATE SEQUENCE public.vine_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.vine_id_seq OWNER TO postgres;
+ALTER TABLE public.vine_id_seq OWNER TO natalya;
 
 --
 -- TOC entry 2253 (class 0 OID 0)
 -- Dependencies: 196
--- Name: vine_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: vine_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: natalya
 --
 
 ALTER SEQUENCE public.vine_id_seq OWNED BY public.wine.id;
@@ -486,7 +486,7 @@ ALTER SEQUENCE public.vine_id_seq OWNED BY public.wine.id;
 
 --
 -- TOC entry 2072 (class 2604 OID 16395)
--- Name: cocktail id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: cocktail id; Type: DEFAULT; Schema: public; Owner: natalya
 --
 
 ALTER TABLE ONLY public.cocktail ALTER COLUMN id SET DEFAULT nextval('public.cocktail_id_seq'::regclass);
@@ -494,7 +494,7 @@ ALTER TABLE ONLY public.cocktail ALTER COLUMN id SET DEFAULT nextval('public.coc
 
 --
 -- TOC entry 2076 (class 2604 OID 16459)
--- Name: day id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: day id; Type: DEFAULT; Schema: public; Owner: natalya
 --
 
 ALTER TABLE ONLY public.day ALTER COLUMN id SET DEFAULT nextval('public.day_id_seq'::regclass);
@@ -502,7 +502,7 @@ ALTER TABLE ONLY public.day ALTER COLUMN id SET DEFAULT nextval('public.day_id_s
 
 --
 -- TOC entry 2080 (class 2604 OID 16478)
--- Name: dish id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: dish id; Type: DEFAULT; Schema: public; Owner: natalya
 --
 
 ALTER TABLE ONLY public.dish ALTER COLUMN id SET DEFAULT nextval('public.dish_id_seq'::regclass);
@@ -510,7 +510,7 @@ ALTER TABLE ONLY public.dish ALTER COLUMN id SET DEFAULT nextval('public.dish_id
 
 --
 -- TOC entry 2075 (class 2604 OID 16447)
--- Name: meal id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: meal id; Type: DEFAULT; Schema: public; Owner: natalya
 --
 
 ALTER TABLE ONLY public.meal ALTER COLUMN id SET DEFAULT nextval('public.meal_id_seq'::regclass);
@@ -518,7 +518,7 @@ ALTER TABLE ONLY public.meal ALTER COLUMN id SET DEFAULT nextval('public.meal_id
 
 --
 -- TOC entry 2077 (class 2604 OID 16468)
--- Name: wine id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: wine id; Type: DEFAULT; Schema: public; Owner: natalya
 --
 
 ALTER TABLE ONLY public.wine ALTER COLUMN id SET DEFAULT nextval('public.vine_id_seq'::regclass);
@@ -527,7 +527,7 @@ ALTER TABLE ONLY public.wine ALTER COLUMN id SET DEFAULT nextval('public.vine_id
 --
 -- TOC entry 2229 (class 0 OID 16392)
 -- Dependencies: 189
--- Data for Name: cocktail; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: cocktail; Type: TABLE DATA; Schema: public; Owner: natalya
 --
 
 INSERT INTO public.cocktail (id, name, description, price, picture, id_day) VALUES (1, 'Long Island Iced Tea', 'The Long Island Iced Tea is a popular mixed drink that, despite its name, contains no tea. It is one of those mixed drinks that tastes good going down but can quickly sneak up on you. It''s best to take it easy with this one. The LIIT''s ingredient list is long, but the recipe is very easy to remember: five white distilled spirits (vodka, gin, tequila, light rum, triple sec), a shot of sour mix, topped with cola and served over ice
@@ -538,7 +538,7 @@ INSERT INTO public.cocktail (id, name, description, price, picture, id_day) VALU
 --
 -- TOC entry 2254 (class 0 OID 0)
 -- Dependencies: 188
--- Name: cocktail_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: cocktail_id_seq; Type: SEQUENCE SET; Schema: public; Owner: natalya
 --
 
 SELECT pg_catalog.setval('public.cocktail_id_seq', 1, false);
@@ -547,7 +547,7 @@ SELECT pg_catalog.setval('public.cocktail_id_seq', 1, false);
 --
 -- TOC entry 2233 (class 0 OID 16448)
 -- Dependencies: 193
--- Data for Name: cruise; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: cruise; Type: TABLE DATA; Schema: public; Owner: natalya
 --
 
 INSERT INTO public.cruise (id_code, name, description) VALUES ('ship1_cruise_t1', 'test cruise', NULL);
@@ -556,7 +556,7 @@ INSERT INTO public.cruise (id_code, name, description) VALUES ('ship1_cruise_t1'
 --
 -- TOC entry 2235 (class 0 OID 16456)
 -- Dependencies: 195
--- Data for Name: day; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: day; Type: TABLE DATA; Schema: public; Owner: natalya
 --
 
 INSERT INTO public.day (id, name, description, id_cruise, cocktail_of_the_day) VALUES (1, 'first sea day', 'sea day for testing purpuses', 'ship1_cruise_t1', 1);
@@ -566,7 +566,7 @@ INSERT INTO public.day (id, name, description, id_cruise, cocktail_of_the_day) V
 --
 -- TOC entry 2255 (class 0 OID 0)
 -- Dependencies: 194
--- Name: day_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: day_id_seq; Type: SEQUENCE SET; Schema: public; Owner: natalya
 --
 
 SELECT pg_catalog.setval('public.day_id_seq', 1, false);
@@ -575,7 +575,7 @@ SELECT pg_catalog.setval('public.day_id_seq', 1, false);
 --
 -- TOC entry 2239 (class 0 OID 16475)
 -- Dependencies: 199
--- Data for Name: dish; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: dish; Type: TABLE DATA; Schema: public; Owner: natalya
 --
 
 INSERT INTO public.dish (id, name, description, picture, category, id_meal, recomended_wine, id_day) VALUES (4, 'Cereals', 'Hot: oatmeal with cream or milk. Cold: Cornflakes, Granola, All Bran, Grape Nuts, Frosted Flakes, Raisin Bran and Mueslix', NULL, 'breakfast', 2, NULL, 0);
@@ -656,7 +656,7 @@ INSERT INTO public.dish (id, name, description, picture, category, id_meal, reco
 --
 -- TOC entry 2256 (class 0 OID 0)
 -- Dependencies: 198
--- Name: dish_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: dish_id_seq; Type: SEQUENCE SET; Schema: public; Owner: natalya
 --
 
 SELECT pg_catalog.setval('public.dish_id_seq', 1, true);
@@ -665,7 +665,7 @@ SELECT pg_catalog.setval('public.dish_id_seq', 1, true);
 --
 -- TOC entry 2232 (class 0 OID 16444)
 -- Dependencies: 192
--- Data for Name: meal; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: meal; Type: TABLE DATA; Schema: public; Owner: natalya
 --
 
 INSERT INTO public.meal (id, id_restaurant, name, time_open, time_close) VALUES (1, 1, 'dinner', '17:30:00', '22:00:00');
@@ -681,7 +681,7 @@ INSERT INTO public.meal (id, id_restaurant, name, time_open, time_close) VALUES 
 --
 -- TOC entry 2257 (class 0 OID 0)
 -- Dependencies: 191
--- Name: meal_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: meal_id_seq; Type: SEQUENCE SET; Schema: public; Owner: natalya
 --
 
 SELECT pg_catalog.setval('public.meal_id_seq', 1, true);
@@ -690,7 +690,7 @@ SELECT pg_catalog.setval('public.meal_id_seq', 1, true);
 --
 -- TOC entry 2230 (class 0 OID 16435)
 -- Dependencies: 190
--- Data for Name: restaurant; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: restaurant; Type: TABLE DATA; Schema: public; Owner: natalya
 --
 
 INSERT INTO public.restaurant (id, name, location, description, picture, restaurant_type, price) VALUES (1, 'Bernini', 'DK 6 Midship', 'Anytime dining offers flexibility, with the same freedom as land-based nights out. Show up in the designated dining room whenever you feel like it, between 5:30 p.m. and 10 p.m., to free yourself from the "hurry up and get dressed for dinner" rush that all too often comes after a long and active day in port.', 'bernini.jpg', 'traditional', NULL);
@@ -703,7 +703,7 @@ INSERT INTO public.restaurant (id, name, location, description, picture, restaur
 --
 -- TOC entry 2258 (class 0 OID 0)
 -- Dependencies: 187
--- Name: restaurant_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: restaurant_id_seq; Type: SEQUENCE SET; Schema: public; Owner: natalya
 --
 
 SELECT pg_catalog.setval('public.restaurant_id_seq', 39, true);
@@ -712,7 +712,7 @@ SELECT pg_catalog.setval('public.restaurant_id_seq', 39, true);
 --
 -- TOC entry 2259 (class 0 OID 0)
 -- Dependencies: 196
--- Name: vine_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: vine_id_seq; Type: SEQUENCE SET; Schema: public; Owner: natalya
 --
 
 SELECT pg_catalog.setval('public.vine_id_seq', 2, true);
@@ -721,7 +721,7 @@ SELECT pg_catalog.setval('public.vine_id_seq', 2, true);
 --
 -- TOC entry 2237 (class 0 OID 16465)
 -- Dependencies: 197
--- Data for Name: wine; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: wine; Type: TABLE DATA; Schema: public; Owner: natalya
 --
 
 INSERT INTO public.wine (id, name, description, price_for_glass, price_for_bottle, picture) VALUES (2, 'Cabernet Sauvignon Sylvester', 'Sylvester is a winery that starts to produce wine in California in 1969 in an area called Paso Robles Valley. Is owned by a family that originally came from Austria and start growing grapes after the Second World War. And was so successful and grew so rapidly that soon had to bye some grapes from other Californian district.
@@ -742,7 +742,7 @@ Asti spumante is made by a unique version of a tank method using only one fermen
 
 --
 -- TOC entry 2084 (class 2606 OID 16486)
--- Name: cocktail pk_cocktail; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: cocktail pk_cocktail; Type: CONSTRAINT; Schema: public; Owner: natalya
 --
 
 ALTER TABLE ONLY public.cocktail
@@ -751,7 +751,7 @@ ALTER TABLE ONLY public.cocktail
 
 --
 -- TOC entry 2091 (class 2606 OID 16488)
--- Name: cruise pk_cruise; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: cruise pk_cruise; Type: CONSTRAINT; Schema: public; Owner: natalya
 --
 
 ALTER TABLE ONLY public.cruise
@@ -760,7 +760,7 @@ ALTER TABLE ONLY public.cruise
 
 --
 -- TOC entry 2093 (class 2606 OID 16484)
--- Name: day pk_day; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: day pk_day; Type: CONSTRAINT; Schema: public; Owner: natalya
 --
 
 ALTER TABLE ONLY public.day
@@ -769,7 +769,7 @@ ALTER TABLE ONLY public.day
 
 --
 -- TOC entry 2098 (class 2606 OID 16490)
--- Name: dish pk_dish; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: dish pk_dish; Type: CONSTRAINT; Schema: public; Owner: natalya
 --
 
 ALTER TABLE ONLY public.dish
@@ -778,7 +778,7 @@ ALTER TABLE ONLY public.dish
 
 --
 -- TOC entry 2089 (class 2606 OID 16492)
--- Name: meal pk_meal; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: meal pk_meal; Type: CONSTRAINT; Schema: public; Owner: natalya
 --
 
 ALTER TABLE ONLY public.meal
@@ -787,7 +787,7 @@ ALTER TABLE ONLY public.meal
 
 --
 -- TOC entry 2086 (class 2606 OID 16494)
--- Name: restaurant pk_restaurant; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: restaurant pk_restaurant; Type: CONSTRAINT; Schema: public; Owner: natalya
 --
 
 ALTER TABLE ONLY public.restaurant
@@ -796,7 +796,7 @@ ALTER TABLE ONLY public.restaurant
 
 --
 -- TOC entry 2095 (class 2606 OID 16496)
--- Name: wine pk_vine; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: wine pk_vine; Type: CONSTRAINT; Schema: public; Owner: natalya
 --
 
 ALTER TABLE ONLY public.wine
@@ -805,7 +805,7 @@ ALTER TABLE ONLY public.wine
 
 --
 -- TOC entry 2096 (class 1259 OID 16564)
--- Name: dish_name_index; Type: INDEX; Schema: public; Owner: postgres
+-- Name: dish_name_index; Type: INDEX; Schema: public; Owner: natalya
 --
 
 CREATE INDEX dish_name_index ON public.dish USING btree (name);
@@ -813,7 +813,7 @@ CREATE INDEX dish_name_index ON public.dish USING btree (name);
 
 --
 -- TOC entry 2087 (class 1259 OID 16563)
--- Name: meal_name_index; Type: INDEX; Schema: public; Owner: postgres
+-- Name: meal_name_index; Type: INDEX; Schema: public; Owner: natalya
 --
 
 CREATE INDEX meal_name_index ON public.meal USING btree (name);
@@ -821,7 +821,7 @@ CREATE INDEX meal_name_index ON public.meal USING btree (name);
 
 --
 -- TOC entry 2101 (class 2606 OID 16497)
--- Name: day fk_cruise_day; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: day fk_cruise_day; Type: FK CONSTRAINT; Schema: public; Owner: natalya
 --
 
 ALTER TABLE ONLY public.day
@@ -830,7 +830,7 @@ ALTER TABLE ONLY public.day
 
 --
 -- TOC entry 2099 (class 2606 OID 16507)
--- Name: cocktail fk_day_cocktail; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: cocktail fk_day_cocktail; Type: FK CONSTRAINT; Schema: public; Owner: natalya
 --
 
 ALTER TABLE ONLY public.cocktail
@@ -839,7 +839,7 @@ ALTER TABLE ONLY public.cocktail
 
 --
 -- TOC entry 2103 (class 2606 OID 16518)
--- Name: dish fk_day_dish; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: dish fk_day_dish; Type: FK CONSTRAINT; Schema: public; Owner: natalya
 --
 
 ALTER TABLE ONLY public.dish
@@ -848,7 +848,7 @@ ALTER TABLE ONLY public.dish
 
 --
 -- TOC entry 2102 (class 2606 OID 16512)
--- Name: dish fk_meal_dish; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: dish fk_meal_dish; Type: FK CONSTRAINT; Schema: public; Owner: natalya
 --
 
 ALTER TABLE ONLY public.dish
@@ -857,7 +857,7 @@ ALTER TABLE ONLY public.dish
 
 --
 -- TOC entry 2100 (class 2606 OID 16531)
--- Name: meal fk_reataurant_meal; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: meal fk_reataurant_meal; Type: FK CONSTRAINT; Schema: public; Owner: natalya
 --
 
 ALTER TABLE ONLY public.meal
@@ -866,7 +866,7 @@ ALTER TABLE ONLY public.meal
 
 --
 -- TOC entry 2104 (class 2606 OID 16523)
--- Name: dish fk_wine_dish; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: dish fk_wine_dish; Type: FK CONSTRAINT; Schema: public; Owner: natalya
 --
 
 ALTER TABLE ONLY public.dish
@@ -876,7 +876,7 @@ ALTER TABLE ONLY public.dish
 --
 -- TOC entry 2247 (class 0 OID 0)
 -- Dependencies: 7
--- Name: SCHEMA public; Type: ACL; Schema: -; Owner: postgres
+-- Name: SCHEMA public; Type: ACL; Schema: -; Owner: natalya
 --
 
 GRANT ALL ON SCHEMA public TO PUBLIC;
@@ -885,6 +885,6 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 -- Completed on 2018-06-23 23:45:01
 
 --
--- PostgreSQL database dump complete
+-- natalyaQL database dump complete
 --
 
