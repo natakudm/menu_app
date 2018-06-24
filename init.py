@@ -5,4 +5,4 @@ import os
 #
 # Database.initialize(user='postgres', password='7777777', database='menu_app', host=db_url)
 
-img_url = 'https://menuap.herokuapp.com/site/img/'
+img_url = 'http://178.128.17.152/site/img/'

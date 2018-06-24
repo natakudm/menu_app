@@ -9,7 +9,7 @@ let search_str = window.location.search.replace('?', '').split('&').reduce(
 console.log(search_str);
 let id_dish = search_str.dish_id;
 
-let url_page = `https://menuap.herokuapp.com/dish/${id_dish}`;
+let url_page = `http://${url_site}/dish/${id_dish}`;
 
 
 class UI {

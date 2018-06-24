@@ -1,4 +1,4 @@
-let url_page = `https://menuap.herokuapp.com/${id_day}/cocktails`;
+let url_page = `http://${url_site}/${id_day}/cocktails`;
 
 class UI {
     constructor() {

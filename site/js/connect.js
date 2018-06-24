@@ -2,6 +2,8 @@
 localStorage.setItem('id_day', 1);
 let id_day = localStorage.getItem('id_day');
 
+const url_site = '178.128.17.152';
+
 class Connect{
     get(url){
         return new Promise((resolve, reject) => {

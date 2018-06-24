@@ -10,7 +10,7 @@ console.log();
 let restaurant_type = type.restaurant_type;
 
 
-let url_page = `https://menuap.herokuapp.com/${id_day}/dinner/${restaurant_type}`;
+let url_page = `http://${url_site}/${id_day}/dinner/${restaurant_type}`;
 
 
 class UI {

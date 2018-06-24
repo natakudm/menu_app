@@ -1,4 +1,4 @@
-let url_page = 'https://menuap.herokuapp.com/main';
+let url_page = `http://${url_site}/main`;
 
 String.prototype.firstLetterCaps = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
