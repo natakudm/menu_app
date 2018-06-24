@@ -5,4 +5,4 @@ import os
 #
 # Database.initialize(user='postgres', password='7777777', database='menu_app', host=db_url)
 
-img_url = 'http://178.128.17.152/site/img/'
+img_url = 'http://167.99.215.120/site/img/'

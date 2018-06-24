@@ -2,7 +2,7 @@
 localStorage.setItem('id_day', 1);
 let id_day = localStorage.getItem('id_day');
 
-const url_site = '178.128.17.152';
+const url_site = '167.99.215.120';
 
 class Connect{
     get(url){
