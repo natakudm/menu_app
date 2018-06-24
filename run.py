@@ -5,4 +5,4 @@ import os
 
 db_url = os.environ.get('DATABASE_URL', 'localhost')
 
-Database.initialize(user='postgres', password='7777777', database='menu_app', host=db_url)
+Database.initialize(user='natalya', password='nat2012', database='natalya', host=db_url)

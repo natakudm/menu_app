@@ -17,18 +17,18 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 SET row_security = off;
 
-DROP DATABASE menu_app;
+DROP DATABASE natalya;
 --
 -- TOC entry 2245 (class 1262 OID 16387)
--- Name: menu_app; Type: DATABASE; Schema: -; Owner: postgres
+-- Name: natalya; Type: DATABASE; Schema: -; Owner: postgres
 --
 
-CREATE DATABASE menu_app WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C' LC_CTYPE = 'C';
+CREATE DATABASE natalya WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C' LC_CTYPE = 'C';
 
 
-ALTER DATABASE menu_app OWNER TO postgres;
+ALTER DATABASE natalya OWNER TO postgres;
 
-\connect menu_app
+\connect natalya
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -530,7 +530,8 @@ ALTER TABLE ONLY public.wine ALTER COLUMN id SET DEFAULT nextval('public.vine_id
 -- Data for Name: cocktail; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.cocktail (id, name, description, price, picture, id_day) VALUES (1, 'Long Island Iced Tea', 'The Long Island Iced Tea is a popular mixed drink that, despite its name, contains no tea. It is one of those mixed drinks that tastes good going down but can quickly sneak up on you. It''s best to take it easy with this one. The LIIT''s ingredient list is long, but the recipe is very easy to remember: five white distilled spirits (vodka, gin, tequila, light rum, triple sec), a shot of sour mix, topped with cola and served over ice', 6.95, 'lit.jpg', 1);
+INSERT INTO public.cocktail (id, name, description, price, picture, id_day) VALUES (1, 'Long Island Iced Tea', 'The Long Island Iced Tea is a popular mixed drink that, despite its name, contains no tea. It is one of those mixed drinks that tastes good going down but can quickly sneak up on you. It''s best to take it easy with this one. The LIIT''s ingredient list is long, but the recipe is very easy to remember: five white distilled spirits (vodka, gin, tequila, light rum, triple sec), a shot of sour mix, topped with cola and served over ice
+', 6.95, 'lit.jpg', 1);
 INSERT INTO public.cocktail (id, name, description, price, picture, id_day) VALUES (2, 'Margarita', 'A margarita is a cocktail consisting of tequila, orange liqueur, and lime juice often served with salt on the rim of the glass. The drink is served shaken with ice (on the rocks), blended with ice (frozen margarita), or without ice (straight)', 4.95, 'margarita.jpg', 1);
 
 
